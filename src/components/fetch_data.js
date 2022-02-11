@@ -1,0 +1,2 @@
+'https://api.openweathermap.org/data/2.5/onecall?lat=51.5085&lon=-0.1257&appid=b4094e7ee81afa53177036765e7564f9'
+'https://api.openweathermap.org/data/2.5/forecast?q=London&appid=b4094e7ee81afa53177036765e7564f9'
