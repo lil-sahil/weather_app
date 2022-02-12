@@ -1,0 +1,1 @@
+(()=>{"use strict";fetch(((e,t=!1,o=!1,a=!1)=>{if(!0===e)return"https://api.openweathermap.org/data/2.5/forecast?"+(e=>{if(!0===e)return"q="})(e=!0)+t+"&appid=b4094e7ee81afa53177036765e7564f9"})(!0,"London"),{mode:"cors"}).then((e=>e.json())).then((e=>{console.log(e)}))})();
