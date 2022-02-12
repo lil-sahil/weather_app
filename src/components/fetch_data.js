@@ -1,2 +1,36 @@
-'https://api.openweathermap.org/data/2.5/onecall?lat=51.5085&lon=-0.1257&appid=b4094e7ee81afa53177036765e7564f9'
-'https://api.openweathermap.org/data/2.5/forecast?q=London&appid=b4094e7ee81afa53177036765e7564f9'
+import { apiKey,
+         webAddress,
+         criteria } from "./api_keys"     
+
+
+/**
+ * module to make API calls to WeatherAPI
+ */
+export const API_CALL = (() => {
+  
+  // Get complete webaddress
+
+  const getWebAddress = (cityEntered, city = false, lon = false, lan = false) => {
+    if (cityEntered === true){      
+      return webAddress() + criteria(cityEntered = true) + city + '&appid=' + apiKey()
+    }
+  }
+
+
+  // Forecast API Call based on city
+  const forecastAPICity = (city) => {
+
+
+    fetch(getWebAddress(true, city), {mode: 'cors'})
+      .then((response) => {
+        return response.json()
+      })
+      .then((response) => {
+        console.log(response)
+      })
+
+  }
+
+  return { forecastAPICity }
+
+})()
