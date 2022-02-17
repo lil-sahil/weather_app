@@ -16,7 +16,6 @@ export const API_CALL = (() => {
     }
   }
 
-
   // Forecast API Call based on city
   const forecastAPICity = (city) => {
 
