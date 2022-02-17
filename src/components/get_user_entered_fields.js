@@ -1,5 +1,7 @@
 import { getUserEnteredCity,
-         submitBtn } from "../utils/dom"
+         getUserEnteredCountry,
+         getUserEnteredLongitude,
+         getUserEnteredLatitude } from "../utils/dom"
 
 
 
@@ -9,12 +11,14 @@ import { getUserEnteredCity,
 
 export const USER_DATA = () => {
 
-  // When the button is pressed return the value in the form.
-  const ButtonEventListner = (() => {
-    submitBtn().addEventListener('click', () => {
-      console.log(getUserEnteredCity())
-      return getUserEnteredCity()
-    })
-  })()
+  // Get the user data currently entered in the fields
 
+  const getUserDataArray = () => {
+    return [getUserEnteredCity(), 
+            getUserEnteredCountry(), 
+            getUserEnteredLongitude(), 
+            getUserEnteredLatitude()]
+  }
+
+  return { getUserDataArray }
 }
