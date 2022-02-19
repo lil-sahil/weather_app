@@ -1,3 +1,5 @@
+export const cityCountrydisplay = document.querySelector('#city-country')
+
 export const getUserEnteredCity = () => {
   return document.querySelector('#search-fields > form > input[name="city"]').value
 }

@@ -2,7 +2,9 @@
 
 
 const TODAY_SHOWCASE = () => {
-  showcase = document.createElement('div')
+  let showcaseContainer = document.createElement('div')
+  
+  
 
   return showcase
 }

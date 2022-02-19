@@ -1,7 +1,17 @@
+// DOM Elements
+import { submitBtn,
+         cityCountrydisplay } from "./utils/dom";
+
+
+
+
+// Controllers
 import { API_CALL } from "./components/fetch_data"; 
 import { USER_DATA } from "./components/get_user_entered_fields";
-import { submitBtn } from "./utils/dom";
-import { TRANSFORM_DATA } from "./components/transform_data";
+
+
+// Visual Components
+import { CITY_COUNTRY } from "./components/city_country_verification";
 
 
 
@@ -18,9 +28,9 @@ const RUN_APP = (() => {
     let apiData = await API_CALL.makeApiCall(userDataArray)
     
 
-    // Get city Data
-    let cityData = TRANSFORM_DATA.cityCountryVerification(apiData)
-    console.log(cityData)
+    // Display city/Country Component
+    cityCountrydisplay.appendChild(CITY_COUNTRY.makeComponent(apiData))
+    
   })  
 
 })()
