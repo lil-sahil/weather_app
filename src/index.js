@@ -1,6 +1,5 @@
 // DOM Elements
-import { submitBtn,
-         cityCountrydisplay } from "./utils/dom";
+import { submitBtn } from "./utils/dom";
 
 
 
@@ -29,7 +28,7 @@ const RUN_APP = (() => {
     
 
     // Display city/Country Component
-    cityCountrydisplay.appendChild(CITY_COUNTRY.makeComponent(apiData))
+    CITY_COUNTRY.makeComponent(apiData)
     
   })  
 

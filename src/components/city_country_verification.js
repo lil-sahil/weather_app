@@ -1,8 +1,20 @@
+// DOM Elements
+import { cityCountryDisplay } from "../utils/dom"
+
+// Utils
+import { clearChildren } from "../utils/clear_children"
+
 
 export const CITY_COUNTRY = (() => {
 
 
   const controller = (APIdata) => {
+
+    // Remove all previous child elements
+    clearChildren(cityCountryDisplay)
+
+
+    // tansform data.
     let cityName = APIdata.city.name
     let countryName = APIdata.city.country
 
@@ -28,7 +40,7 @@ export const CITY_COUNTRY = (() => {
 
   const makeComponent = (APIdata) => {
 
-    return display(...controller(APIdata))
+    cityCountryDisplay.appendChild(display(...controller(APIdata)))
 
   }
 
