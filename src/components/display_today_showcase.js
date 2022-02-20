@@ -3,7 +3,7 @@ import { dailyForecastShowcase } from "../utils/dom";
 
 // Utils
 import { clearChildren } from "../utils/clear_children";
-import { DATE_FORMATTER } from "../utils/timeFormat";
+import { DATE_FORMATTER } from "../utils/time_format";
 
 // API
 import { API_CALL } from "./fetch_data";
