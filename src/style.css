@@ -1,8 +1,34 @@
-/* body {
-  background-color: black;
-} */
-
 i {
   color: black;
   font-size: larger;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/*  */
+/* Section - Daily Forecast */
+#daily-forecast {
+  border: 5px solid black;
+  border-radius: 1rem;
+}
+
+#daily-forecast > div {
+  padding: 1rem;
+}
+
+#daily-forecast > div div {
+  display: flex;
+  flex-direction: row;
+}
+
+#daily-forecast > div div > h3 {
+  order: 2;
+}
+
+/* Date */
+#daily-forecast div:first-child {
+  justify-content: flex-end;
 }

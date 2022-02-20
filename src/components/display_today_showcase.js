@@ -78,16 +78,16 @@ export const TODAY_SHOWCASE = (() => {
     mainContainer.appendChild(date);
 
     // Current Temperature
-    componentHelper("Current Temperature", currentTemp, mainContainer);
+    componentHelper("Current Temp.", currentTemp, mainContainer);
 
     // Feels Like Temperature
     componentHelper("Feels Like", feelLikeTemp, mainContainer);
 
     // Minimum Temperature
-    componentHelper("Min Temp", tempMin, mainContainer);
+    componentHelper("Min", tempMin, mainContainer);
 
     // Maximum Temperature
-    componentHelper("Max Temp", tempMax, mainContainer);
+    componentHelper("Max", tempMax, mainContainer);
 
     // Humidity
     componentHelper("Humidity", humidity, mainContainer);
