@@ -1,88 +1,107 @@
 // DOM Elements
-import { dailyForecastShowcase } from "../utils/dom"
+import { dailyForecastShowcase } from "../utils/dom";
 
 // Utils
-import { clearChildren } from "../utils/clear_children"
-import { ICONS } from "../utils/icons"
+import { clearChildren } from "../utils/clear_children";
+import { DATE_FORMATTER } from "../utils/timeFormat";
 
 // API
-import { API_CALL } from "./fetch_data"
-
+import { API_CALL } from "./fetch_data";
 
 export const TODAY_SHOWCASE = (() => {
-
   const controller = (APIdata) => {
-
     // Remove all previous child elements
-    clearChildren(dailyForecastShowcase)
+    clearChildren(dailyForecastShowcase);
 
+    // Get relevant data for the component
+    let currentTemp = APIdata.list[0].main.temp;
+    let feelLikeTemp = APIdata.list[0].main.feels_like;
+    let tempMin = APIdata.list[0].main.temp_min;
+    let tempMax = APIdata.list[0].main.temp_max;
+    let humidity = APIdata.list[0].main.humidity;
+    let weather = APIdata.list[0].weather[0].main;
+    let weatherIcon = APIdata.list[0].weather[0].icon;
+    let UnixTime = APIdata.list[0].dt;
 
-    // Get relevant data to the component
-    let currentTemp = APIdata.list[0].main.temp
-    let feelLikeTemp = APIdata.list[0].main.feels_like
-    let tempMin = APIdata.list[0].main.temp_min
-    let tempMax = APIdata.list[0].main.temp_max
-    let humidity = APIdata.list[0].main.humidity
-    let weather = APIdata.list[0].weather[0].main
-    let weatherIcon = APIdata.list[0].weather[0].icon
+    return [
+      currentTemp,
+      feelLikeTemp,
+      tempMin,
+      tempMax,
+      humidity,
+      weather,
+      weatherIcon,
+      UnixTime,
+    ];
+  };
 
+  const componentHelper = (
+    labelString,
+    attributeValue,
+    mainContainer,
+    weatherIcon
+  ) => {
+    let mainComponentContainer = document.createElement("div");
+    let label = document.createElement("h3");
+    let value = document.createElement("div");
 
-    return [currentTemp, feelLikeTemp, tempMin, tempMax, humidity, weather, weatherIcon]
-  }
+    label.innerHTML = labelString;
 
+    labelString === "Currently"
+      ? (value.innerHTML = `<img src=${API_CALL.makeAPICallWeather(
+          weatherIcon
+        )}>`)
+      : (value.innerHTML = attributeValue);
 
-  const componentHelper = (labelString, attributeValue, mainContainer, weatherIcon) => {
+    mainComponentContainer.appendChild(label);
+    mainComponentContainer.appendChild(value);
 
-    let mainComponentContainer = document.createElement('div')
-    let label = document.createElement('h3')
-    let value = document.createElement('div')
+    mainContainer.appendChild(mainComponentContainer);
+  };
 
-    
-    label.innerHTML = labelString
+  const display = (
+    currentTemp,
+    feelLikeTemp,
+    tempMin,
+    tempMax,
+    humidity,
+    weather,
+    weatherIcon,
+    UnixTime
+  ) => {
+    let mainContainer = document.createElement("div");
 
-    labelString === 'Currently' ? value.innerHTML = `<img src=${API_CALL.makeAPICallWeather(weatherIcon)}>` : value.innerHTML = attributeValue
+    // Add Date and time
+    let date = document.createElement("div");
+    date.innerHTML = DATE_FORMATTER.getHumanDate(UnixTime);
 
-    mainComponentContainer.appendChild(label)
-    mainComponentContainer.appendChild(value)
-
-    mainContainer.appendChild(mainComponentContainer)
-  }
-
-  const display = (currentTemp, feelLikeTemp, tempMin, tempMax, humidity, weather, weatherIcon) => {
-    
-    let mainContainer = document.createElement('div')
+    mainContainer.appendChild(date);
 
     // Current Temperature
-    componentHelper('Current Temperature', currentTemp, mainContainer)
-    
-        
+    componentHelper("Current Temperature", currentTemp, mainContainer);
+
     // Feels Like Temperature
-    componentHelper('Feels Like', feelLikeTemp, mainContainer)
+    componentHelper("Feels Like", feelLikeTemp, mainContainer);
 
     // Minimum Temperature
-    componentHelper('Min Temp', tempMin, mainContainer)
-    
+    componentHelper("Min Temp", tempMin, mainContainer);
+
     // Maximum Temperature
-    componentHelper('Max Temp', tempMax, mainContainer)
-    
+    componentHelper("Max Temp", tempMax, mainContainer);
+
     // Humidity
-    componentHelper('Humidity', humidity, mainContainer)
-    
+    componentHelper("Humidity", humidity, mainContainer);
+
     // Current Weather
-    
-    componentHelper('Currently', ICONS[`${weather}`], mainContainer, weatherIcon)
-    
-    
-    return mainContainer
-  }
+
+    componentHelper("Currently", (weather = false), mainContainer, weatherIcon);
+
+    return mainContainer;
+  };
 
   const makeComponent = (APIdata) => {
+    dailyForecastShowcase.appendChild(display(...controller(APIdata)));
+  };
 
-    dailyForecastShowcase.appendChild(display(...controller(APIdata)))
-
-  }
-
-  return { makeComponent }
-})()
-
-
+  return { makeComponent };
+})();

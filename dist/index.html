@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../src/style.css">
-  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <title>Weather App</title>
-</head>
-<body>
-  <header>
-    <h1>The Weather App</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/@fortawesome/fontawesome-free/css/all.css"
+    />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <header>
+      <h1>The Weather App</h1>
+    </header>
 
-  <div class="main-logo">
-    <i class="fa-solid fa-bolt"></i>
-  </div>
+    <div class="main-logo">
+      <i class="fa-solid fa-bolt"></i>
+    </div>
 
-  <section id = "search-fields">
-    <form action="submit">
-      <input type="text" name="city" value = 'Brampton'>
-      <input type="text" name="country-code" value = 'Canada'>
-      <input type="text" name="longitude">
-      <input type="text" name="latitude">
-      <button type = "button">Search</button>
-    </form>
+    <section id="search-fields">
+      <form action="submit">
+        <input type="text" name="city" value="Brampton" />
+        <input type="text" name="country-code" value="Canada" />
+        <input type="text" name="longitude" />
+        <input type="text" name="latitude" />
+        <button type="button">Search</button>
+      </form>
+    </section>
 
-  </section>
+    <section id="city-country"></section>
 
-  <section id = "city-country">
+    <section id="daily-forecast"></section>
 
-  </section>
+    <section id="weekly-forecast"></section>
 
-  <section id = "daily-forecast">
-
-  </section>
-
-  <section id="weekly-forecast">
-
-  </section>
-
-  <script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

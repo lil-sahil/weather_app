@@ -1,46 +1,38 @@
 // DOM Elements
-import { cityCountryDisplay } from "../utils/dom"
+import { cityCountryDisplay } from "../utils/dom";
 
 // Utils
-import { clearChildren } from "../utils/clear_children"
-
+import { clearChildren } from "../utils/clear_children";
 
 export const CITY_COUNTRY = (() => {
-
   const controller = (APIdata) => {
-
     // Remove all previous child elements
-    clearChildren(cityCountryDisplay)
-
+    clearChildren(cityCountryDisplay);
 
     // Get relevant data to the component
-    let cityName = APIdata.city.name
-    let countryName = APIdata.city.country
+    let cityName = APIdata.city.name;
+    let countryName = APIdata.city.country;
 
-    return [cityName, countryName]
-  }
+    return [cityName, countryName];
+  };
 
   const display = (cityName, CountryName) => {
-    
-    let mainContainer = document.createElement('div')
-    let city = document.createElement('h1')
-    city.innerHTML = cityName
-    
-    let country = document.createElement('h5')
-    country.innerHTML = CountryName
+    let mainContainer = document.createElement("div");
+    let city = document.createElement("h1");
+    city.innerHTML = cityName;
 
-    
-    mainContainer.appendChild(city)
-    mainContainer.appendChild(country)
-  
-    return mainContainer
-  }
+    let country = document.createElement("h5");
+    country.innerHTML = CountryName;
+
+    mainContainer.appendChild(city);
+    mainContainer.appendChild(country);
+
+    return mainContainer;
+  };
 
   const makeComponent = (APIdata) => {
+    cityCountryDisplay.appendChild(display(...controller(APIdata)));
+  };
 
-    cityCountryDisplay.appendChild(display(...controller(APIdata)))
-
-  }
-
-  return { makeComponent }
-})()
+  return { makeComponent };
+})();
