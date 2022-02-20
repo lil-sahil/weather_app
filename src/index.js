@@ -2,15 +2,14 @@
 import { submitBtn } from "./utils/dom";
 
 
-
-
 // Controllers
 import { API_CALL } from "./components/fetch_data"; 
 import { USER_DATA } from "./components/get_user_entered_fields";
 
 
-// Visual Components
-import { CITY_COUNTRY } from "./components/city_country_verification";
+// Display Components
+import { CITY_COUNTRY } from "./components/display_city_country";
+import { TODAY_SHOWCASE } from "./components/display_today_showcase";
 
 
 
@@ -29,6 +28,9 @@ const RUN_APP = (() => {
 
     // Display city/Country Component
     CITY_COUNTRY.makeComponent(apiData)
+
+    // Display today showcase
+    TODAY_SHOWCASE.makeComponent(apiData)
     
   })  
 

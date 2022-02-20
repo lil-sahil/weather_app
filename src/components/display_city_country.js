@@ -7,20 +7,18 @@ import { clearChildren } from "../utils/clear_children"
 
 export const CITY_COUNTRY = (() => {
 
-
   const controller = (APIdata) => {
 
     // Remove all previous child elements
     clearChildren(cityCountryDisplay)
 
 
-    // tansform data.
+    // Get relevant data to the component
     let cityName = APIdata.city.name
     let countryName = APIdata.city.country
 
     return [cityName, countryName]
   }
-
 
   const display = (cityName, CountryName) => {
     

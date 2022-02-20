@@ -3,9 +3,6 @@ import { apiKey,
          criteria } from "./api_keys"     
 
 
-/**
- * module to make API calls to WeatherAPI
- */
 export const API_CALL = (() => {
   
   // Get complete webaddress
@@ -18,7 +15,7 @@ export const API_CALL = (() => {
 
     else if (city !== "" & country !== ""){
       // forecastAPICity
-      return webAddress() + criteria(true) + city + ',' + country + '&appid=' + apiKey()
+      return webAddress() + criteria(true) + city + ',' + country + '&units=metric' + '&appid=' + apiKey()
     }
 
     else if (lon !== "" & lat !== ""){
@@ -44,6 +41,11 @@ export const API_CALL = (() => {
             })
   }
 
-  return { makeApiCall }
+
+  const makeAPICallWeather = (iconCode) => {
+    return `http://openweathermap.org/img/wn/${iconCode}.png`
+  }
+
+  return { makeApiCall, makeAPICallWeather }
 
 })()
