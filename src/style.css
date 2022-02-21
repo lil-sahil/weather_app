@@ -31,6 +31,7 @@ body {
 
 #daily-forecast > div div > h3 {
   order: 2;
+  font-size: 0.8rem;
 }
 
 /* Date */
@@ -45,6 +46,15 @@ body {
   grid-column-end: col2;
   grid-row-start: row1;
   grid-row-end: row3;
+}
+
+#daily-forecast div:nth-child(2) > div {
+  margin: auto 0;
+  font-size: 5rem;
+}
+
+#daily-forecast div:nth-child(2) > h3 {
+  margin: auto auto 0 0;
 }
 
 /* Feels Like */
