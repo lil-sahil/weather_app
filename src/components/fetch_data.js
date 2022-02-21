@@ -40,7 +40,7 @@ export const API_CALL = (() => {
   };
 
   const makeAPICallWeather = (iconCode) => {
-    return `http://openweathermap.org/img/wn/${iconCode}.png`;
+    return `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
   };
 
   return { makeApiCall, makeAPICallWeather };
