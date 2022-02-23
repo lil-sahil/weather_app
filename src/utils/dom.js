@@ -29,3 +29,5 @@ export const submitBtn = () => {
 export const cityCountryDisplay = document.querySelector("#city-country");
 
 export const dailyForecastShowcase = document.querySelector("#daily-forecast");
+
+export const weeklyForecastDisplay = document.querySelector("#weekly-forecast");

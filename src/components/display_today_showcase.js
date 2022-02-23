@@ -4,22 +4,14 @@ import { dailyForecastShowcase } from "../utils/dom";
 // Utils
 import { clearChildren } from "../utils/clear_children";
 import { DATE_FORMATTER } from "../utils/time_format";
+import { addDegree } from "../utils/degree_sign";
+import { addPercentageSign } from "../utils/percentage_sign";
 
 // API
 import { API_CALL } from "./fetch_data";
 
 export const TODAY_SHOWCASE = (() => {
   const controller = (APIdata) => {
-    // At degree symbol to base value
-    const addDegree = (baseString) => {
-      return `${baseString}\xB0C`;
-    };
-
-    // Add percentage Sign
-    const addPercentageSign = (baseString) => {
-      return `${baseString}%`;
-    };
-
     // Remove all previous child elements
     clearChildren(dailyForecastShowcase);
 
