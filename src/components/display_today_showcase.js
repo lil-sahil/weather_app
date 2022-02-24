@@ -12,16 +12,13 @@ import { API_CALL } from "./fetch_data";
 
 export const TODAY_SHOWCASE = (() => {
   const controller = (APIdata) => {
-    // Remove all previous child elements
-    clearChildren(dailyForecastShowcase);
-
     // Get relevant data for the component
-    let currentTemp = addDegree(APIdata.list[0].main.temp.toPrecision(1));
+    let currentTemp = addDegree(APIdata.list[0].main.temp.toPrecision(2));
     let feelLikeTemp = addDegree(
-      APIdata.list[0].main.feels_like.toPrecision(1)
+      APIdata.list[0].main.feels_like.toPrecision(2)
     );
-    let tempMin = addDegree(APIdata.list[0].main.temp_min.toPrecision(1));
-    let tempMax = addDegree(APIdata.list[0].main.temp_max.toPrecision(1));
+    let tempMin = addDegree(APIdata.list[0].main.temp_min.toPrecision(2));
+    let tempMax = addDegree(APIdata.list[0].main.temp_max.toPrecision(2));
     let humidity = addPercentageSign(APIdata.list[0].main.humidity);
     let weather = APIdata.list[0].weather[0].main;
     let weatherIcon = APIdata.list[0].weather[0].icon;
@@ -104,6 +101,9 @@ export const TODAY_SHOWCASE = (() => {
   };
 
   const makeComponent = (APIdata) => {
+    // Remove all previous child elements
+    clearChildren(dailyForecastShowcase);
+
     dailyForecastShowcase.appendChild(display(...controller(APIdata)));
   };
 

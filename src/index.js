@@ -8,6 +8,7 @@ import { USER_DATA } from "./components/get_user_entered_fields";
 // Display Components
 import { CITY_COUNTRY } from "./components/display_city_country";
 import { TODAY_SHOWCASE } from "./components/display_today_showcase";
+import { WEEKLY_FORECAST } from "./components/display_weekly_showcase";
 
 const RUN_APP = (() => {
   submitBtn().addEventListener("click", async () => {
@@ -22,5 +23,8 @@ const RUN_APP = (() => {
 
     // Display today showcase
     TODAY_SHOWCASE.makeComponent(apiData);
+
+    // Display Weekly Cards
+    WEEKLY_FORECAST.makeComponent(apiData);
   });
 })();
