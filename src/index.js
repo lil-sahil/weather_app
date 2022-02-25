@@ -15,6 +15,9 @@ const RUN_APP = (() => {
     // Get User entered Data
     let userDataArray = USER_DATA().getUserDataArray();
 
+    // Check user data Array and exit function if it contains empty values
+    if (userDataArray.includes("")) return;
+
     // Make API Call
     let apiData = await API_CALL.makeApiCall(userDataArray);
 

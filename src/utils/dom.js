@@ -9,18 +9,6 @@ export const getUserEnteredCountry = () => {
   ).value;
 };
 
-export const getUserEnteredLongitude = () => {
-  return document.querySelector(
-    '#search-fields > form > input[name="longitude"]'
-  ).value;
-};
-
-export const getUserEnteredLatitude = () => {
-  return document.querySelector(
-    '#search-fields > form > input[name="latitude"]'
-  ).value;
-};
-
 export const submitBtn = () => {
   return document.querySelector("#search-fields > form > button");
 };

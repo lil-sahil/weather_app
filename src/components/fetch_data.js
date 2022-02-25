@@ -2,28 +2,28 @@ import { apiKey, webAddress, criteria } from "./api_keys";
 
 export const API_CALL = (() => {
   // Get complete webaddress
-  const getWebAddress = (city = "", country = "", lon = "", lat = "") => {
+  const getWebAddress = (city = "", country = "") => {
     // If nothing entered
-    if ((city === "") & (country === "") & (lon === "") & (lat === "")) {
-      return 1;
-    } else if ((city !== "") & (country !== "")) {
-      // forecastAPICity
-      return (
-        webAddress() +
-        criteria(true) +
-        city +
-        "," +
-        country +
-        "&units=metric" +
-        "&appid=" +
-        apiKey()
-      );
-    } else if ((lon !== "") & (lat !== "")) {
-      // forecastLonLat
-      return 1;
-    } else {
-      return 1;
-    }
+    if ((city === "") & (country === ""))
+      return console.log("Enter City and Country");
+
+    // If City not entered
+    if (city === "") return console.log("Enter a City");
+
+    // If Country code not selected
+    if (country === "") return console.log("Select a Country Code");
+
+    // forecastAPICity
+    return (
+      webAddress() +
+      criteria(true) +
+      city +
+      "," +
+      country +
+      "&units=metric" +
+      "&appid=" +
+      apiKey()
+    );
   };
 
   const makeApiCall = (userData) => {
