@@ -6,7 +6,10 @@ export const DATE_FORMATTER = (() => {
   };
 
   const getTime = (unixTime) => {
-    return new Date(unixTime * 1000).toLocaleTimeString("en-US");
+    return new Date(unixTime * 1000).toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+    });
   };
 
   const getDay = (unixTime) => {

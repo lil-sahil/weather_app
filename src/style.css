@@ -124,14 +124,30 @@ body {
 /*  */
 /* Section - Weekly Forecast */
 
+/* Section Container */
 #weekly-forecast {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
 }
 
+/* Individual Card Containers */
 #weekly-forecast > div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px red solid;
+  margin: 2px;
+}
+
+/* Min Max temperatures */
+#weekly-forecast > div > div:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

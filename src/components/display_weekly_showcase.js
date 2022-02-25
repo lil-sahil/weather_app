@@ -69,20 +69,6 @@ export const WEEKLY_FORECAST = (() => {
     return [time, day, weatherIcon, minTemp, maxTemp];
   };
 
-  // Create a sanitized data to not take into account previous times.
-  const sanitizeData = (apiData) => {
-    // Get all data greater than the current time.
-    let currentTime = new Date();
-
-    let sanitizedArray = apiData.list.filter((el) => {
-      if (DATE_FORMATTER.getHumanDate(el.dt, false) > currentTime) {
-        return el;
-      }
-    });
-
-    return sanitizedArray;
-  };
-
   const makeComponent = (apiData) => {
     // Remove all previous child elements
     clearChildren(weeklyForecastDisplay);
