@@ -6,6 +6,7 @@ import { clearChildren } from "../utils/clear_children";
 import { DATE_FORMATTER } from "../utils/time_format";
 import { addDegree } from "../utils/degree_sign";
 import { addPercentageSign } from "../utils/percentage_sign";
+import { capitalizeFirstLetters } from "../utils/capitalize_first_letters";
 
 // API
 import { API_CALL } from "./fetch_data";
@@ -20,7 +21,9 @@ export const TODAY_SHOWCASE = (() => {
     let tempMin = addDegree(APIdata.list[0].main.temp_min.toPrecision(2));
     let tempMax = addDegree(APIdata.list[0].main.temp_max.toPrecision(2));
     let humidity = addPercentageSign(APIdata.list[0].main.humidity);
-    let weather = APIdata.list[0].weather[0].main;
+    let weather = capitalizeFirstLetters(
+      APIdata.list[0].weather[0].description
+    );
     let weatherIcon = APIdata.list[0].weather[0].icon;
     let UnixTime = APIdata.list[0].dt;
 
