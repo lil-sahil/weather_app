@@ -1,4 +1,4 @@
-let COUNTRY_DATA = [
+export let COUNTRY_DATA = [
   {
     country: "Afghanistan",
     abbreviation: "AF",

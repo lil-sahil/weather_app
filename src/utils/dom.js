@@ -5,12 +5,18 @@ export const getUserEnteredCity = () => {
 
 export const getUserEnteredCountry = () => {
   return document.querySelector(
-    '#search-fields > form > input[name="country-code"]'
+    '#search-fields > form > select[name="country-code"]'
   ).value;
 };
 
 export const submitBtn = () => {
   return document.querySelector("#search-fields > form > button");
+};
+
+export const selectContainer = () => {
+  return document.querySelector(
+    '#search-fields > form > select[name="country-code"]'
+  );
 };
 
 // Display Sections

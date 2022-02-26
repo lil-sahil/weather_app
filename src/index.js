@@ -9,8 +9,10 @@ import { USER_DATA } from "./components/get_user_entered_fields";
 import { CITY_COUNTRY } from "./components/display_city_country";
 import { TODAY_SHOWCASE } from "./components/display_today_showcase";
 import { WEEKLY_FORECAST } from "./components/display_weekly_showcase";
+import { POPULATE_COUNTRY_CODES } from "./components/country_codes";
 
 const RUN_APP = (() => {
+  POPULATE_COUNTRY_CODES.populate();
   submitBtn().addEventListener("click", async () => {
     // Get User entered Data
     let userDataArray = USER_DATA().getUserDataArray();
