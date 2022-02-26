@@ -21,15 +21,20 @@ const RUN_APP = (() => {
     if (userDataArray.includes("")) return;
 
     // Make API Call
-    let apiData = await API_CALL.makeApiCall(userDataArray);
+    try {
+      let apiData = await API_CALL.makeApiCall(userDataArray);
 
-    // Display city/Country Component
-    CITY_COUNTRY.makeComponent(apiData);
+      // Display city/Country Component
+      CITY_COUNTRY.makeComponent(apiData);
 
-    // Display today showcase
-    TODAY_SHOWCASE.makeComponent(apiData);
+      // Display today showcase
+      TODAY_SHOWCASE.makeComponent(apiData);
 
-    // Display Weekly Cards
-    WEEKLY_FORECAST.makeComponent(apiData);
+      // Display Weekly Cards
+      WEEKLY_FORECAST.makeComponent(apiData);
+    } catch (err) {
+      alert(err);
+      return;
+    }
   });
 })();

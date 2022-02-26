@@ -34,7 +34,12 @@ export const API_CALL = (() => {
 
     return fetch(getWebAddress(...userData), { mode: "cors" }).then(
       (response) => {
-        return response.json();
+        if (!response.ok) {
+          const err = new Error("Invalid Combination of City and Country.");
+          throw err;
+        } else {
+          return response.json();
+        }
       }
     );
   };
