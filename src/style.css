@@ -3,9 +3,10 @@
   box-sizing: border-box;
 }
 
-i {
-  color: black;
-  font-size: larger;
+:root {
+  --temprature-font: "ZCOOL QingKe HuangYou";
+  --primary-font: "ROBOTO";
+  --time-font: "Dosis";
 }
 
 body {
@@ -13,6 +14,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: var(--primary-font), sans-serif;
+  font-weight: 400;
+}
+
+/*  */
+/* Icons */
+i {
+  color: black;
+  font-size: larger;
+}
+
+/*  */
+/* Main Title */
+.main-title {
+  font-family: var(--primary-font), sans-serif;
 }
 
 /*  */
@@ -37,9 +53,14 @@ body {
   margin-bottom: 1rem;
 }
 
+#daily-forecast > div div div {
+  font-family: var(--temprature-font), cursive;
+}
+
 #daily-forecast > div div > h3 {
   order: 2;
   font-size: 0.8rem;
+  font-weight: 400;
 }
 
 /* Date */
@@ -141,7 +162,14 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px red solid;
+  border-radius: 4px;
   margin: 2px;
+}
+
+/* Time */
+#weekly-forecast > div > div:first-child {
+  font-family: var(--time-font), sans-serif;
+  font-weight: 900;
 }
 
 /* Min Max temperatures */
@@ -150,4 +178,5 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--temprature-font), cursive;
 }
