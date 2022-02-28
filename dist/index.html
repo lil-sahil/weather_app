@@ -18,26 +18,30 @@
     <title>Weather IQ</title>
   </head>
   <body>
-    <header>
-      <h1 class="main-title">Weather IQ</h1>
-    </header>
+    <div class="container">
+      <section id="title">
+        <header>
+          <h1 class="main-title">Weather IQ</h1>
+        </header>
 
-    <div class="main-logo">
-      <i class="fa-solid fa-bolt"></i>
+        <div class="main-logo">
+          <i class="fa-solid fa-umbrella"></i>
+        </div>
+      </section>
+
+      <section id="search-fields">
+        <form action="submit">
+          <input type="text" name="city" value="Brampton" />
+          <select name="country-code" id="country-code"></select>
+          <button type="button">Search</button>
+        </form>
+      </section>
+      <section id="city-country" class="hidden"></section>
+
+      <section id="daily-forecast"></section>
+
+      <section id="weekly-forecast"></section>
     </div>
-
-    <section id="search-fields">
-      <form action="submit">
-        <input type="text" name="city" value="Brampton" />
-        <select name="country-code" id="country-code"></select>
-        <button type="button">Search</button>
-      </form>
-    </section>
-    <section id="city-country"></section>
-
-    <section id="daily-forecast"></section>
-
-    <section id="weekly-forecast"></section>
 
     <script src="main.js"></script>
   </body>
